@@ -9,30 +9,22 @@ import PageWithoutRouter from '../Page'
 import HomePage from '../HomePage'
 import RecipiesPage from '../RecipiesPage'
 import CookbooksPage from '../CookbooksPage'
+import CookbookPage from '../CookbookPage'
+import RecipePage from '../RecipePage'
+import withId from '../../hoc/withId'
 
 const Page = withRouter(PageWithoutRouter);
-const renderHome = () => (
-  <Page>
-    <HomePage />
-  </Page>
-)
-const renderCookbooks = () => (
-  <Page>
-    <CookbooksPage />
-  </Page>
-)
-const renderRecipies = () => (
-  <Page>
-    <RecipiesPage />
-  </Page>
-)
 
 export default () => (
   <Router>
-    <Switch>
-      <Route path="/cookbooks" component={renderCookbooks} />
-      <Route path="/recipies" component={renderRecipies} />
-      <Route path="/" render={renderHome} />
-    </Switch>
+    <Page>
+      <Switch>
+        <Route path="/cookbooks/:id" component={withId(CookbookPage)} />
+        <Route path="/recipies/:id" component={withId(RecipePage)} />
+        <Route path="/cookbooks" component={CookbooksPage} />
+        <Route path="/recipies" component={RecipiesPage} />
+        <Route path="/" component={HomePage} />
+      </Switch>
+    </Page>
   </Router>
 )

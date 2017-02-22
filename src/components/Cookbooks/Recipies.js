@@ -1,6 +1,8 @@
 import React from 'react'
 import Table from '../Table'
 import Sequence from './Sequence'
+import Actions from '../Actions'
+
 const columns = [{
   title: 'Title',
   dataIndex: 'title',
@@ -18,6 +20,10 @@ const columns = [{
   title: 'Tags',
   dataIndex: 'tags',
   key: 'tags',
+}, {
+  title: 'Actions',
+  key: 'actions',
+  render: Actions('/recipies/', (id) =>{console.log('delete', id)})
 }];
 
 const transform = (d) => d.map((o)=>({
@@ -31,6 +37,7 @@ const transform = (d) => d.map((o)=>({
 
 export default ({details}) => (
   <Table
+    bordered
     title={() => 'Recipies'}
     dataSource={transform(details)}
     columns={columns}

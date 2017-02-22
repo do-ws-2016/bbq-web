@@ -29,6 +29,7 @@ const transform = (d) => d.map((o, i)=>({
 
 export default ({details}) => (
   <Table
+    bordered
     title={() => 'Sequence'}
     dataSource={transform(details)}
     columns={columns}
