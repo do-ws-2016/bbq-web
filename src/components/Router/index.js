@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  withRouter
-} from 'react-router-dom'
-import PageWithoutRouter from '../Page'
-import HomePage from '../HomePage'
-import RecipiesPage from '../RecipiesPage'
-import CookbooksPage from '../CookbooksPage'
-import CookbookPage from '../CookbookPage'
-import RecipePage from '../RecipePage'
-import withId from '../../hoc/withId'
+  withRouter,
+} from 'react-router-dom';
+import PageWithoutRouter from '../Page';
+import HomePage from '../HomePage';
+import RecipiesPage from '../RecipiesPage';
+import CookbooksPage from '../CookbooksPage';
+import CookbookPage from '../CookbookPage';
+import RecipePage from '../RecipePage';
+import withId from '../../hoc/withId';
 
 const Page = withRouter(PageWithoutRouter);
 
@@ -27,4 +27,4 @@ export default () => (
       </Switch>
     </Page>
   </Router>
-)
+);
