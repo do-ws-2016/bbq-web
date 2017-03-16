@@ -2,17 +2,17 @@ import React from 'react';
 import Table from '../Table';
 import Recipies from './Recipies';
 import Actions from '../Actions';
+import loading from '../../hoc/loading';
 
-const transform = d =>
-  d.map(o => ({
-    key: o._id,
-    title: o.title,
-    description: o.description,
-    tags: o.tags.map(t => '#' + t).join(' '),
-    author: o.author.username,
-    recipiesCount: o.recipes.length,
-    details: o.recipes,
-  }));
+const transform = d => d.map(o => ({
+  key: o._id,
+  title: o.title,
+  description: o.description,
+  tags: o.tags.map(t => '#' + t).join(' '),
+  author: o.author.username,
+  recipiesCount: o.recipes.length,
+  details: o.recipes,
+}));
 
 const columns = [
   {
@@ -49,7 +49,7 @@ const columns = [
   },
 ];
 
-export default ({ data }) => (
+const Cookbooks = ({ data }) => (
   <Table
     bordered
     dataSource={transform(data.cookbooks)}
@@ -57,3 +57,5 @@ export default ({ data }) => (
     Details={Recipies}
   />
 );
+
+export default loading(Cookbooks);

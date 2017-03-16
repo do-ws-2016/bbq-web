@@ -7,7 +7,8 @@ function hasErrors(fieldsError) {
 
 class HorizontalLoginForm extends React.Component {
   componentDidMount() {
-    this.props.form.setFieldsInitialValue(this.props.initialValues);
+    if (this.props.initialValues)
+      this.props.form.setFieldsInitialValue(this.props.initialValues);
     // To disabled submit button at the beginning.
     this.props.form.validateFields();
   }
@@ -35,12 +36,11 @@ class HorizontalLoginForm extends React.Component {
     const titleError = isFieldTouched('title') && getFieldError('title');
     const descriptionError = isFieldTouched('description') &&
       getFieldError('description');
-    const recepiesError = isFieldTouched('recepies') &&
-      getFieldError('recepies');
+    const recipesError = isFieldTouched('recipes') &&
+      getFieldError('recipes');
     const tagsError = isFieldTouched('tags') && getFieldError('tags');
     const thumbnailURLError = isFieldTouched('thumbnailURL') &&
       getFieldError('thumbnailURL');
-    console.log(this.props.form.getFieldsValue());
     return (
       <Form layout="horizontal" onSubmit={this.handleSubmit}>
         <Form.Item
@@ -62,14 +62,14 @@ class HorizontalLoginForm extends React.Component {
           })(<Input placeholder="Description" type="textarea" />)}
         </Form.Item>
         <Form.Item
-          validateStatus={recepiesError ? 'error' : ''}
-          help={recepiesError || ''}
+          validateStatus={recipesError ? 'error' : ''}
+          help={recipesError || ''}
         >
-          {getFieldDecorator('recepies', {
-            rules: [{ required: false, message: 'Please input recepies!' }],
+          {getFieldDecorator('recipes', {
+            rules: [{ required: false, message: 'Please input recipes!' }],
           })(
-            <Select multiple placeholder="Recepies">
-              {this.props.recepies.map(r => (
+            <Select multiple placeholder="Recipes">
+              {this.props.recipes.map(r => (
                 <Select.Option key={r.id}>{r.title}</Select.Option>
               ))}
             </Select>
