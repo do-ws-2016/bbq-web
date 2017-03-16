@@ -1,8 +1,8 @@
 import React from 'react';
+import Content from '../Content';
 import Cookbooks from '../Cookbooks/connected';
 export default () => (
-  <div>
-    <h1>Cookbooks</h1>
+  <Content header="Cookbooks">
     <Cookbooks />
-  </div>
+  </Content>
 );

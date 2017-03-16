@@ -1,8 +1,9 @@
 import React from 'react';
 import Cookbook from '../Cookbook/connected';
+import Content from '../Content';
+
 export default props => (
-  <div>
-    <h1>Cookbook</h1>
+  <Content header="Cookbook">
     <Cookbook id={props.id} />
-  </div>
+  </Content>
 );

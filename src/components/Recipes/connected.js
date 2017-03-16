@@ -7,6 +7,7 @@ const enhance = compose(
   loading,
   mapProps(ownerProps => ({
     details: ownerProps.data.recipes,
+    title: false,
   }))
 );
 export default enhance(Component);

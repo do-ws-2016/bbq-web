@@ -5,6 +5,7 @@ export default compose(
   withRouter,
   mapProps(({
     history: { push },
+    location: { state },
     to,
     type,
     htmlType,
@@ -14,7 +15,7 @@ export default compose(
     ghost,
   }) => ({
     onClick: () => {
-      push(to);
+      push(to, state);
     },
     type,
     htmlType,

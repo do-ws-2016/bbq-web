@@ -1,6 +1,6 @@
 import React from 'react';
 import Table from '../Table';
-import Recipies from '../Recipies';
+import Recipes from '../Recipes';
 import Actions from '../Actions';
 
 const transform = d =>
@@ -10,7 +10,7 @@ const transform = d =>
     description: o.description,
     tags: o.tags.map(t => '#' + t).join(' '),
     author: o.author.username,
-    recipiesCount: o.recipes.length,
+    recipesCount: o.recipes.length,
     details: o.recipes,
   }));
 
@@ -26,9 +26,9 @@ const columns = [
     key: 'description',
   },
   {
-    title: 'Recipies Count',
-    dataIndex: 'recipiesCount',
-    key: 'recipiesCount',
+    title: 'Recipes Count',
+    dataIndex: 'recipesCount',
+    key: 'recipesCount',
   },
   {
     title: 'Tags',
@@ -54,7 +54,7 @@ const Cookbooks = ({ data }) => (
     bordered
     dataSource={transform(data.cookbooks)}
     columns={columns}
-    Details={Recipies}
+    Details={Recipes}
   />
 );
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { matchPath } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
-const { Header, Content, Footer, Sider } = Layout;
+const { Sider } = Layout;
 import './style.css';
 
 const routes = [
@@ -18,21 +18,19 @@ const routes = [
     exact: false,
   },
   {
-    path: '/recipies',
+    path: '/recipes',
     icon: 'file-text',
-    title: 'Recipies',
+    title: 'Recipes',
     exact: false,
   },
 ];
 
-const onCollapse = props =>
-  collapsed => {
-    props.history.push(props.location.pathname, collapsed ? 'collapsed' : '');
-  };
-const onClick = props =>
-  ({ key: path }) => {
-    props.history.push(path, props.location.state);
-  };
+const onCollapse = props => collapsed => {
+  props.history.push(props.location.pathname, collapsed ? 'collapsed' : '');
+};
+const onClick = props => ({ key: path }) => {
+  props.history.push(path, props.location.state);
+};
 const calcPaths = pathname => {
   const matches = routes.map(({ path, exact }) =>
     matchPath(pathname, { path, exact, strict: false }));
@@ -46,7 +44,7 @@ export default props => (
       collapsed={props.location.state === 'collapsed'}
       onCollapse={onCollapse(props)}
     >
-      <div className="logo" />
+      <div className="logo">BBQ</div>
       <Menu
         theme="dark"
         mode="inline"
@@ -63,12 +61,6 @@ export default props => (
         ))}
       </Menu>
     </Sider>
-    <Layout>
-      <Header>Stuff</Header>
-      <Content className="content">
-        {props.children}
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>Jonas Faber ©2016</Footer>
-    </Layout>
+    {props.children}
   </Layout>
 );

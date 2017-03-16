@@ -1,7 +1,9 @@
 import React from 'react';
+import Content from '../Content';
+
 export default props => (
-  <div>
-    <h1>Recipe {props.id}</h1>
+  <Content header="Recipe">
+    <h1>{props.id}</h1>
     {console.log(props)}
-  </div>
+  </Content>
 );

@@ -10,6 +10,15 @@
   background: .333;
   border-radius: 6px;
   margin: 16px;
+  color: lightgray;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
+}
+
+.layout .ant-layout-header {
+  color: lightgray;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
 }
 
 .layout .ant-layout-sider-collapsed .anticon {

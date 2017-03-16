@@ -27,7 +27,7 @@ const columns = [
   {
     title: 'Actions',
     key: 'actions',
-    render: Actions('/recipies/', id => {
+    render: Actions('/recipes/', id => {
       console.log('delete', id);
     }),
   },
@@ -43,10 +43,10 @@ const transform = d =>
     details: o.sequence,
   }));
 
-const Recipies = ({ details }) => (
+const Recipes = ({ details, title = () => 'Recipes' }) => (
   <Table
     bordered
-    title={() => 'Recipies'}
+    title={title}
     dataSource={transform(details)}
     columns={columns}
     Details={Sequence}
@@ -55,4 +55,4 @@ const Recipies = ({ details }) => (
   />
 );
 
-export default Recipies;
+export default Recipes;

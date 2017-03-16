@@ -8,7 +8,7 @@ import {
 import Provider from '../Provider';
 import PageWithoutRouter from '../Page';
 import HomePage from '../HomePage';
-import RecipiesPage from '../RecipiesPage';
+import RecipesPage from '../RecipesPage';
 import CookbooksPage from '../CookbooksPage';
 import CookbookPage from '../CookbookPage';
 import RecipePage from '../RecipePage';
@@ -24,9 +24,9 @@ export default () => (
         <Switch>
           <Route path="/cookbooks/new" component={NewCookbookPage} />
           <Route path="/cookbooks/:id" component={withId(CookbookPage)} />
-          <Route path="/recipies/:id" component={withId(RecipePage)} />
+          <Route path="/recipes/:id" component={withId(RecipePage)} />
           <Route path="/cookbooks" component={CookbooksPage} />
-          <Route path="/recipies" component={RecipiesPage} />
+          <Route path="/recipes" component={RecipesPage} />
           <Route path="/" component={HomePage} />
         </Switch>
       </Page>
