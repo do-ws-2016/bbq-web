@@ -25,4 +25,4 @@ query Cookbooks {
   }
 }
 `;
-export default graphql(query)
+export default graphql(query);

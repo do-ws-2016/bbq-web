@@ -36,8 +36,7 @@ class HorizontalLoginForm extends React.Component {
     const titleError = isFieldTouched('title') && getFieldError('title');
     const descriptionError = isFieldTouched('description') &&
       getFieldError('description');
-    const recipesError = isFieldTouched('recipes') &&
-      getFieldError('recipes');
+    const recipesError = isFieldTouched('recipes') && getFieldError('recipes');
     const tagsError = isFieldTouched('tags') && getFieldError('tags');
     const thumbnailURLError = isFieldTouched('thumbnailURL') &&
       getFieldError('thumbnailURL');

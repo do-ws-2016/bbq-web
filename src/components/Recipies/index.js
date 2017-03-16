@@ -33,14 +33,15 @@ const columns = [
   },
 ];
 
-const transform = d => d.map(o => ({
-  key: o._id,
-  title: o.title,
-  description: o.description,
-  tags: o.tags.map(t => '#' + t).join(' '),
-  sequenceCount: o.sequence.length,
-  details: o.sequence,
-}));
+const transform = d =>
+  d.map(o => ({
+    key: o._id,
+    title: o.title,
+    description: o.description,
+    tags: o.tags.map(t => '#' + t).join(' '),
+    sequenceCount: o.sequence.length,
+    details: o.sequence,
+  }));
 
 const Recipies = ({ details }) => (
   <Table

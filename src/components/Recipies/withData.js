@@ -15,4 +15,4 @@ query Recipies {
   }
 }
 `;
-export default graphql(query)
+export default graphql(query);
