@@ -1,3 +1,9 @@
 import React from 'react';
+import Recipies from '../Recipies/connected';
 
-export default () => <div>Recipies</div>;
+export default () => (
+  <div>
+    <h1>Recipies</h1>
+    <Recipies />
+  </div>
+);

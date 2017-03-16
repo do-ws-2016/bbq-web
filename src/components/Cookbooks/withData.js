@@ -1,6 +1,6 @@
 import { gql, graphql } from 'react-apollo';
 const query = gql`
-query CookbooksPage {
+query Cookbooks {
   cookbooks{
     _id
     title

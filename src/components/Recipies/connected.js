@@ -1,9 +1,12 @@
-import { compose } from 'recompose';
+import { compose, mapProps } from 'recompose';
 import Component from './index';
 import withData from './withData';
 import loading from '../../hoc/loading';
 const enhance = compose(
   withData,
-  loading
+  loading,
+  mapProps(ownerProps => ({
+    details: ownerProps.data.recipes,
+  }))
 );
 export default enhance(Component);

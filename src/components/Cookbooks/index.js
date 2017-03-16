@@ -1,8 +1,7 @@
 import React from 'react';
 import Table from '../Table';
-import Recipies from './Recipies';
+import Recipies from '../Recipies';
 import Actions from '../Actions';
-import loading from '../../hoc/loading';
 
 const transform = d => d.map(o => ({
   key: o._id,
@@ -58,4 +57,4 @@ const Cookbooks = ({ data }) => (
   />
 );
 
-export default loading(Cookbooks);
+export default Cookbooks;
