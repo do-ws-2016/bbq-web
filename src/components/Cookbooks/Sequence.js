@@ -24,13 +24,14 @@ const columns = [
   },
 ];
 
-const transform = d => d.map((o, i) => ({
-  key: i,
-  title: o.title,
-  duration: o.duration,
-  intensity: o.intensity,
-  method: o.method,
-}));
+const transform = d =>
+  d.map((o, i) => ({
+    key: i,
+    title: o.title,
+    duration: o.duration,
+    intensity: o.intensity,
+    method: o.method,
+  }));
 
 export default ({ details }) => (
   <Table

@@ -3,7 +3,16 @@ import { withRouter } from 'react-router-dom';
 import { mapProps, compose } from 'recompose';
 export default compose(
   withRouter,
-  mapProps(({ push, to, type, htmlType, icon, shape, loading, ghost }) => ({
+  mapProps(({
+    history: { push },
+    to,
+    type,
+    htmlType,
+    icon,
+    shape,
+    loading,
+    ghost,
+  }) => ({
     onClick: () => {
       push(to);
     },

@@ -6,38 +6,36 @@ import './style.css';
 
 const routes = [
   {
-    key: '/',
+    path: '/',
     icon: 'home',
     title: 'Home',
     exact: true,
   },
   {
-    key: '/cookbooks',
+    path: '/cookbooks',
     icon: 'book',
     title: 'Cookbooks',
     exact: false,
   },
   {
-    key: '/recipies',
+    path: '/recipies',
     icon: 'file-text',
     title: 'Recipies',
     exact: false,
   },
 ];
 
-const onCollapse = props => collapsed => {
-  props.push(props.location.pathname, collapsed ? 'collapsed' : '');
-};
-const onClick = props => ({ key }) => {
-  props.push(key, props.location.state);
-};
-const calcPaths = path => {
-  const matches = routes.map(r => {
-    return matchPath(path, r.key, {
-      exact: r.exact,
-      strict: false,
-    });
-  });
+const onCollapse = props =>
+  collapsed => {
+    props.history.push(props.location.pathname, collapsed ? 'collapsed' : '');
+  };
+const onClick = props =>
+  ({ key: path }) => {
+    props.history.push(path, props.location.state);
+  };
+const calcPaths = pathname => {
+  const matches = routes.map(({ path, exact }) =>
+    matchPath(pathname, { path, exact, strict: false }));
   const paths = matches.filter(m => !!m).map(m => m.path);
   return paths;
 };
@@ -56,7 +54,7 @@ export default props => (
         onClick={onClick(props)}
       >
         {routes.map(r => (
-          <Menu.Item key={r.key}>
+          <Menu.Item key={r.path}>
             <span>
               <Icon type={r.icon} />
               <span className="nav-text">{r.title}</span>
@@ -70,9 +68,7 @@ export default props => (
       <Content className="content">
         {props.children}
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Jonas Faber ©2016
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}>Jonas Faber ©2016</Footer>
     </Layout>
   </Layout>
 );

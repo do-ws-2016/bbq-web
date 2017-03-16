@@ -3,7 +3,7 @@ module.exports = function(webpackConfig, isDevelopment) {
 
   //Modify jsLoader for antd framework
   jsLoader.options.plugins = [
-    ['import', [{ libraryName: 'antd', style: 'css' }]],
+    ['import', [{ libraryName: 'antd', style: 'css' }]]
   ];
   return webpackConfig;
 };
